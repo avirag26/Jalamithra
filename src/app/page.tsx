@@ -42,7 +42,7 @@ export default function HomePage() {
               width={280}
               height={112}
               priority
-              className="animate-rise mb-6 h-20 w-auto rounded-xl bg-white object-contain p-2 shadow-lg shadow-brand-deep/25 sm:h-24"
+              className="animate-rise mb-6 hidden h-20 w-auto rounded-xl bg-white object-contain p-2 shadow-lg shadow-brand-deep/25 sm:block sm:h-24"
             />
             <h1 className="animate-rise-delay-1 font-[family-name:var(--font-outfit)] text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Pure water,
