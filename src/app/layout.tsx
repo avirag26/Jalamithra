@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   },
   description:
     "APA Jalamithra manufactures natural, electricity-free water filters for homes, hotels, schools, and communities in Kerala.",
+  icons: {
+    icon: [{ url: "/images/logo.png", type: "image/png" }],
+    apple: [{ url: "/images/logo.png", type: "image/png" }],
+    shortcut: ["/images/logo.png"],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
