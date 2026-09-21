@@ -162,6 +162,7 @@ export default function HomePage() {
                 height={700}
                 className="h-auto w-full rounded-xl object-contain"
                 priority
+                sizes="(max-width: 640px) 90vw, 420px"
               />
             </div>
           </div>
