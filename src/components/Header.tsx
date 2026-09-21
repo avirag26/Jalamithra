@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,34 +19,9 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!open) return;
-    const scrollY = window.scrollY;
-    const { style } = document.body;
-    style.position = "fixed";
-    style.top = `-${scrollY}px`;
-    style.left = "0";
-    style.right = "0";
-    style.width = "100%";
-    style.overflow = "hidden";
-    return () => {
-      style.position = "";
-      style.top = "";
-      style.left = "";
-      style.right = "";
-      style.width = "";
-      style.overflow = "";
-      window.scrollTo(0, scrollY);
-    };
-  }, [open]);
-
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/95 shadow-[0_8px_30px_rgba(8,53,110,0.04)] backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/95 shadow-[0_8px_30px_rgba(8,53,110,0.04)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="relative z-10 flex shrink-0 items-center" onClick={() => setOpen(false)}>
           <Image
             src="/images/logo.png"
@@ -100,33 +75,36 @@ export default function Header() {
         </div>
       </div>
 
-      <div
-        className={`overflow-hidden border-t border-line bg-white transition-[max-height,opacity] duration-300 xl:hidden ${
-          open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <nav className="flex max-h-[70vh] flex-col gap-1 overflow-y-auto px-4 py-4">
-          {links.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`rounded-xl px-4 py-3.5 text-base font-medium transition ${
-                  active
-                    ? "bg-brand text-white shadow-md shadow-brand/20"
-                    : "text-foreground hover:bg-soft"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-          <Link href="/contact" className="btn-primary mt-3 justify-center">
-            Get Clean Water
-          </Link>
-        </nav>
-      </div>
+      {open && (
+        <div className="border-t border-line bg-white xl:hidden">
+          <nav className="flex flex-col gap-1 px-4 py-4">
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-xl px-4 py-3.5 text-base font-medium transition ${
+                    active
+                      ? "bg-brand text-white shadow-md shadow-brand/20"
+                      : "text-foreground hover:bg-soft"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="btn-primary mt-3 justify-center"
+            >
+              Get Clean Water
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
