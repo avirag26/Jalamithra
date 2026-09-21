@@ -186,6 +186,282 @@ video {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.hero-caret {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.9em;
+  margin-left: 0.12em;
+  vertical-align: -0.05em;
+  background: #9ad4ff;
+  animation: caret-blink 0.9s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-caret {
+    animation: none;
+    opacity: 1;
+  }
+
+  .carousel-slide,
+  .cta-rise,
+  .why-slide,
+  .menu-step {
+    animation: none !important;
+  }
+}
+
+.hamburger-btn {
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 1.05rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--brand-deep);
+  transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.menu-drawer .hamburger-btn {
+  border-color: var(--line);
+  background: #fff;
+}
+
+.menu-drawer .hamburger-btn span {
+  background: var(--brand-deep);
+}
+
+.hamburger-btn.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(4, 28, 51, 0.62);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 70;
+  display: flex;
+  height: 100dvh;
+  width: min(86vw, 320px);
+  flex-direction: column;
+  background: #ffffff;
+  border-left: 1px solid var(--line);
+  box-shadow: -16px 0 40px rgba(4, 28, 51, 0.22);
+  transform: translateX(105%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-drawer.is-open {
+  transform: translateX(0);
+}
+
+.menu-box {
+  display: block;
+  border-radius: 0.85rem;
+  border: 1px solid transparent;
+  background: #041c33;
+  padding: 0.9rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.menu-box:hover {
+  background: #0a3d6e;
+}
+
+.menu-box.is-active {
+  background: var(--brand);
+  color: #fff;
+}
+
+.menu-cta {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(135deg, #0a5ea8 0%, #063a6b 55%, #0a7bc2 100%);
+  background-size: 160% 160%;
+  box-shadow:
+    0 10px 24px rgba(10, 94, 168, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.menu-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 28px rgba(10, 94, 168, 0.42);
+}
+
+.menu-cta-icon {
+  display: inline-flex;
+  height: 1.7rem;
+  width: 1.7rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-step {
+  animation: menu-step 0.35s ease both;
+}
+
+@keyframes menu-step {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.carousel-stage {
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  animation: slide-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.carousel-nav-btn {
+  display: inline-flex;
+  height: 2.6rem;
+  width: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+.cta-rise {
+  animation: slide-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.why-section {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(10, 94, 168, 0.08), transparent 60%),
+    #f5f8fb;
+}
+
+.why-nav-btn {
+  display: inline-flex;
+  height: 2.6rem;
+  width: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--brand-deep);
+  background: #fff;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.why-nav-btn:hover {
+  border-color: var(--brand);
+  background: var(--soft);
+  transform: translateY(-1px);
+}
+
+.why-slide {
+  animation: why-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes why-fade {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-slide {
+    animation: none !important;
+  }
+}
+
 .section-title {
   font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 700;
@@ -195,11 +471,30 @@ video {
 }
 
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.72rem;
   font-weight: 650;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--brand);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--brand-light);
+}
+
+.eyebrow.justify-center {
+  justify-content: center;
+}
+
+.eyebrow.justify-center::before {
+  display: none;
 }
 
 .input-field {
