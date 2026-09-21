@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const body = Manrope({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const display = Bricolage_Grotesque({
+  variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
 });
@@ -30,12 +30,6 @@ export const metadata: Metadata = {
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: ["/favicon-32.png"],
-  },
-  appleWebApp: {
-    capable: true,
-    title: "APA Jalamithra",
-    statusBarStyle: "default",
   },
 };
 
@@ -44,12 +38,12 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#0b66c3",
+  themeColor: "#0a5ea8",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${outfit.variable} h-full`}>
+    <html lang="en" className={`${body.variable} ${display.variable} h-full`}>
       <body className="page-shell flex min-h-full flex-col antialiased">
         <Header />
         <main className="flex-1">{children}</main>
