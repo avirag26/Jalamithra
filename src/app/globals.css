@@ -32,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -39,6 +41,16 @@ body {
   color: var(--foreground);
   font-family: var(--font-jakarta), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-width: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 ::selection {
@@ -216,8 +228,39 @@ body {
   .hero-orb,
   .hero-bubble,
   .hero-waves .wave-a,
-  .hero-waves .wave-b {
+  .hero-waves .wave-b,
+  .animate-float {
     animation: none !important;
+  }
+}
+
+/* iPhone / small screens: lighter effects to avoid Safari stutter or crash */
+@media (max-width: 768px) {
+  .hero-stage {
+    animation: none;
+    background-size: 100% 100%;
+  }
+
+  .hero-aurora {
+    inset: 0;
+    filter: none;
+    animation: none;
+    opacity: 0.85;
+  }
+
+  .hero-orb {
+    filter: none;
+    animation: none;
+    opacity: 0.55;
+  }
+
+  .hero-bubbles,
+  .hero-waves {
+    display: none;
+  }
+
+  .animate-float {
+    animation: none;
   }
 }
 

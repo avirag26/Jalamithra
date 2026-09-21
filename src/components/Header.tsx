@@ -24,23 +24,38 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const scrollY = window.scrollY;
+    const { style } = document.body;
+    style.position = "fixed";
+    style.top = `-${scrollY}px`;
+    style.left = "0";
+    style.right = "0";
+    style.width = "100%";
+    style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      style.position = "";
+      style.top = "";
+      style.left = "";
+      style.right = "";
+      style.width = "";
+      style.overflow = "";
+      window.scrollTo(0, scrollY);
     };
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/90 shadow-[0_8px_30px_rgba(8,53,110,0.04)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/95 shadow-[0_8px_30px_rgba(8,53,110,0.04)] backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6 lg:px-8">
         <Link href="/" className="relative z-10 flex shrink-0 items-center" onClick={() => setOpen(false)}>
           <Image
             src="/images/logo.png"
             alt="APA Jalamithra logo"
             width={160}
             height={64}
-            className="h-11 w-auto object-contain sm:h-12"
+            className="h-11 w-auto max-w-[140px] object-contain sm:h-12 sm:max-w-none"
             priority
+            sizes="140px"
           />
         </Link>
 
