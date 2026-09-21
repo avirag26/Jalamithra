@@ -11,15 +11,15 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About APA Jalamithra"
-        description="We are a Kerala-based water solutions company building natural filtration systems that bring clarity and confidence to everyday water."
+        description="A Kerala-based water solutions company building natural filtration systems that bring clarity and confidence to everyday water."
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="mb-2 text-sm font-semibold tracking-[0.16em] text-brand uppercase">Our Story</p>
+            <p className="eyebrow mb-3">Our Story</p>
             <h2 className="section-title text-3xl sm:text-4xl">Friend of water since day one</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted">
+            <p className="mt-5 text-base leading-relaxed text-muted">
               APA Jalamithra Water Solution Private Limited manufactures and supplies natural water
               filters designed for Indian households and institutions. Our systems use natural nelli
               slate and other stones — no power connection required — so water keeps flowing at the
@@ -30,30 +30,31 @@ export default function AboutPage() {
               serve well, river, pond, stream, canal, and line water sources with minimal ongoing
               maintenance after installation.
             </p>
-            <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="soft-panel rounded-2xl p-5">
-                <dt className="text-sm text-muted">Based in</dt>
-                <dd className="mt-1 font-[family-name:var(--font-outfit)] text-lg font-semibold text-brand-deep">
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              <div className="border-l-2 border-brand pl-4">
+                <p className="text-sm text-muted">Based in</p>
+                <p className="mt-1 font-[family-name:var(--font-outfit)] text-lg font-semibold text-brand-deep">
                   Kalikavu, Malappuram
-                </dd>
+                </p>
               </div>
-              <div className="soft-panel rounded-2xl p-5">
-                <dt className="text-sm text-muted">Focus</dt>
-                <dd className="mt-1 font-[family-name:var(--font-outfit)] text-lg font-semibold text-brand-deep">
+              <div className="border-l-2 border-brand-light pl-4">
+                <p className="text-sm text-muted">Focus</p>
+                <p className="mt-1 font-[family-name:var(--font-outfit)] text-lg font-semibold text-brand-deep">
                   Natural water filtration
-                </dd>
+                </p>
               </div>
-            </dl>
+            </div>
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-3 rounded-[1.8rem] bg-brand/10 blur-md" />
+            <div className="absolute -inset-4 rounded-[2rem] bg-brand/8 blur-xl" />
             <Image
               src="/images/products.png"
               alt="Jalamithra filtration equipment"
               width={900}
               height={700}
-              className="relative w-full rounded-[1.5rem] border border-line bg-white object-contain p-4 shadow-lg shadow-brand/10"
+              className="relative w-full rounded-[1.6rem] border border-line bg-white object-contain p-6 shadow-[0_20px_50px_rgba(8,53,110,0.08)]"
             />
           </div>
         </div>

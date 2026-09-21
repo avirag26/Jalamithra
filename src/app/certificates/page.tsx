@@ -17,7 +17,7 @@ const certs = [
   },
   {
     title: "Documentation Pack",
-    text: "Download our sample certificate document shared for this website demo. Replace with official ISO / lab reports as they are issued.",
+    text: "Download the certificate document included with this sample site. Replace with official ISO or lab reports as they are issued.",
   },
 ];
 
@@ -29,34 +29,28 @@ export default function CertificatesPage() {
         description="Trust starts with transparency. Review our company credentials and download the certificate document provided with this sample site."
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {certs.map((item) => (
-            <article key={item.title} className="soft-panel rounded-2xl p-6">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-brand">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <path
-                    d="M12 3l2.2 4.5L19 8.3l-3.5 3.4.8 4.8L12 14.8 7.7 16.5l.8-4.8L5 8.3l4.8-.8L12 3z"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-[family-name:var(--font-outfit)] text-xl font-semibold text-brand-deep">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {certs.map((item, index) => (
+            <article key={item.title} className="border-t-2 border-brand/20 pt-6">
+              <span className="font-[family-name:var(--font-outfit)] text-sm font-bold text-brand-light">
+                0{index + 1}
+              </span>
+              <h3 className="mt-3 font-[family-name:var(--font-outfit)] text-xl font-semibold text-brand-deep">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{item.text}</p>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-[1.5rem] border border-line bg-white p-8 text-center shadow-sm">
+        <div className="mt-14 rounded-[1.75rem] bg-white px-6 py-12 text-center shadow-[0_16px_40px_rgba(8,53,110,0.06)] ring-1 ring-line sm:px-10">
+          <p className="eyebrow mx-auto mb-3 justify-center">Documents</p>
           <h2 className="section-title text-2xl sm:text-3xl">Certificate document</h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-muted">
-            Open or download the PDF placed in the project&apos;s image assets for this sample website.
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted">
+            Open or download the PDF placed in the project assets for this sample website.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="/images/certificate.pdf"
               target="_blank"
@@ -65,7 +59,7 @@ export default function CertificatesPage() {
             >
               View certificate PDF
             </a>
-            <Link href="/contact" className="inline-flex rounded-full border border-brand px-5 py-3 text-sm font-semibold text-brand hover:bg-brand/5">
+            <Link href="/contact" className="btn-secondary">
               Request official copies
             </Link>
           </div>

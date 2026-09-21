@@ -42,39 +42,40 @@ export default function ServicesPage() {
         description="From a single home connection to institutional water lines — Jalamithra designs natural filtration around your source and usage."
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mb-10 grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mb-14 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <Image
             src="/images/products.png"
             alt="Water treatment systems"
             width={800}
             height={600}
-            className="w-full rounded-2xl border border-line bg-white object-contain p-4"
+            className="w-full rounded-[1.5rem] border border-line bg-white object-contain p-5 shadow-[0_16px_40px_rgba(8,53,110,0.06)]"
           />
           <div>
-            <h2 className="section-title text-3xl">What we deliver</h2>
-            <p className="mt-3 text-muted">
+            <p className="eyebrow mb-3">What we deliver</p>
+            <h2 className="section-title text-3xl sm:text-4xl">Filtration matched to your water</h2>
+            <p className="mt-4 text-base leading-relaxed text-muted">
               Every installation is chosen for source type, salt content, and daily demand — so you get
               clarity without sacrificing flow.
             </p>
           </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((item, index) => (
-            <article key={item.title} className="soft-panel rounded-2xl p-6">
-              <span className="font-[family-name:var(--font-outfit)] text-sm font-bold text-brand-light">
+            <article key={item.title} className="border-t border-line pt-6">
+              <span className="font-[family-name:var(--font-outfit)] text-sm font-bold tracking-wider text-brand-light">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-2 font-[family-name:var(--font-outfit)] text-xl font-semibold text-brand-deep">
+              <h3 className="mt-3 font-[family-name:var(--font-outfit)] text-xl font-semibold text-brand-deep">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{item.text}</p>
             </article>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Link href="/contact" className="btn-primary">
             Book a service consultation
           </Link>
