@@ -3,7 +3,10 @@ import Link from "next/link";
 import BottomShowcase from "@/components/BottomShowcase";
 import HeroTypewriter from "@/components/HeroTypewriter";
 import ProductShowcase from "@/components/ProductShowcase";
+import PurificationLayers from "@/components/PurificationLayers";
 import Reveal from "@/components/Reveal";
+import StorySection from "@/components/StorySection";
+import TrustBuilders from "@/components/TrustBuilders";
 import WhyCarousel from "@/components/WhyCarousel";
 import { lifestyle } from "@/lib/products";
 
@@ -67,13 +70,21 @@ export default function HomePage() {
               >
                 Request a visit
               </Link>
-              <Link href="/services" className="btn-ghost">
-                View services
+              <Link href="/#purification" className="btn-ghost">
+                See how it works
               </Link>
             </Reveal>
           </div>
         </div>
       </section>
+
+      <TrustBuilders />
+
+      <StorySection />
+
+      <div id="purification">
+        <PurificationLayers />
+      </div>
 
       <ProductShowcase />
 
