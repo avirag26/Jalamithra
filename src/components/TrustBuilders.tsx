@@ -117,7 +117,7 @@ export default function TrustBuilders() {
                 )}
               </p>
               <p className="trust-stat-label mt-2 text-sm font-semibold">{stat.label}</p>
-              <p className="mt-1 text-xs text-white/55">{stat.hint}</p>
+              <p className="mt-1 text-xs text-muted">{stat.hint}</p>
             </div>
           ))}
         </div>
@@ -130,11 +130,11 @@ export default function TrustBuilders() {
                   <span className="trust-icon mx-auto" aria-hidden>
                     {item.mark}
                   </span>
-                  <h3 className="display mt-4 text-xl text-white transition group-hover:text-[#b8f0e8]">
+                  <h3 className="display mt-4 text-xl text-brand-deep transition group-hover:text-brand">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">{item.text}</p>
-                  <span className="mt-4 inline-block text-sm font-semibold text-[#7ee0d2]">
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/70">{item.text}</p>
+                  <span className="mt-4 inline-block text-sm font-semibold text-brand">
                     View certificates →
                   </span>
                 </Link>
@@ -143,8 +143,8 @@ export default function TrustBuilders() {
                   <span className="trust-icon mx-auto" aria-hidden>
                     {item.mark}
                   </span>
-                  <h3 className="display mt-4 text-xl text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">{item.text}</p>
+                  <h3 className="display mt-4 text-xl text-brand-deep">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/70">{item.text}</p>
                 </div>
               )}
             </Reveal>
