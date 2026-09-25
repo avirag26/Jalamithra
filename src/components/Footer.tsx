@@ -12,7 +12,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-line bg-white">
+    <footer className="site-footer mt-auto border-t border-line bg-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1.1fr] lg:px-8">
         <div>
           <Image
@@ -22,7 +22,7 @@ export default function Footer() {
             height={58}
             className="mb-4 h-11 w-auto object-contain"
           />
-          <p className="max-w-sm text-sm leading-relaxed text-muted">
+          <p className="max-w-sm text-sm leading-relaxed text-foreground/70">
             Natural, electricity-free water filtration for homes and institutions across Kerala.
           </p>
         </div>
@@ -30,10 +30,10 @@ export default function Footer() {
           <p className="mb-4 text-xs font-semibold tracking-[0.14em] text-brand-deep uppercase">
             Explore
           </p>
-          <ul className="space-y-2.5 text-sm text-muted">
+          <ul className="space-y-2.5 text-sm text-foreground/70">
             {links.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-brand-deep">
+                <Link href={link.href} className="transition hover:text-brand-deep">
                   {link.label}
                 </Link>
               </li>
@@ -44,7 +44,7 @@ export default function Footer() {
           <p className="mb-4 text-xs font-semibold tracking-[0.14em] text-brand-deep uppercase">
             Visit
           </p>
-          <ul className="space-y-2.5 text-sm leading-relaxed text-muted">
+          <ul className="space-y-2.5 text-sm leading-relaxed text-foreground/70">
             <li>Enadhi, Alipetta House</li>
             <li>Kalikavu, Malappuram — 676525</li>
             <li>
@@ -53,7 +53,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="tel:+919037037373" className="hover:text-brand-deep">
+              <a href="tel:+919037037373" className="font-semibold text-brand hover:text-brand-deep">
                 +91 90370 37373
               </a>
             </li>

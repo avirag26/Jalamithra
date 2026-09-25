@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = { title: "Certificates" };
 
@@ -29,16 +30,16 @@ export default function CertificatesPage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 border-t border-line pt-12 lg:grid-cols-3">
           {certs.map((item, i) => (
-            <article key={item.title}>
+            <Reveal key={item.title} delay={(Math.min(i + 1, 4) as 1 | 2 | 3 | 4)}>
               <p className="text-xs font-semibold tracking-[0.16em] text-brand/70 uppercase">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <h3 className="display mt-3 text-xl text-brand-deep">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{item.text}</p>
-            </article>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/70">{item.text}</p>
+            </Reveal>
           ))}
         </div>
-        <div className="mt-14 border border-line bg-white px-6 py-12 text-center sm:px-10">
+        <Reveal delay={2} className="cert-banner mt-14 px-6 py-12 text-center sm:px-10">
           <h2 className="section-title text-2xl sm:text-3xl">Certificate document</h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-muted">
             Open the PDF included with this sample website.
@@ -56,7 +57,7 @@ export default function CertificatesPage() {
               Request copies
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

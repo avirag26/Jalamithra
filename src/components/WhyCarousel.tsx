@@ -43,13 +43,14 @@ export default function WhyCarousel() {
   const item = highlights[index];
 
   return (
-    <section className="why-section border-y border-line">
-      <div className="mx-auto flex max-w-4xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
+    <section className="why-section relative overflow-hidden border-y border-line">
+      <div className="why-drift" aria-hidden />
+      <div className="relative mx-auto flex max-w-4xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-24">
         <p className="eyebrow mb-3 justify-center">Why Jalamithra</p>
         <h2 className="section-title text-3xl sm:text-4xl lg:text-[2.75rem]">
           Clarity without complication
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-muted">
+        <p className="mx-auto mt-4 max-w-xl text-foreground/70">
           A quieter kind of filtration — natural media, familiar flow, and water you feel better
           about using every day.
         </p>
@@ -77,7 +78,7 @@ export default function WhyCarousel() {
               {String(index + 1).padStart(2, "0")}
             </p>
             <h3 className="display text-3xl text-brand-deep sm:text-4xl">{item.title}</h3>
-            <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-foreground/70 sm:text-lg">
               {item.text}
             </p>
           </article>

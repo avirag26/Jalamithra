@@ -47,8 +47,8 @@ export default function HomePage() {
         <div className="hero-water-sheen" aria-hidden />
         <div className="hero-ripple" aria-hidden />
 
-        <div className="relative z-[2] mx-auto flex min-h-[min(96vh,880px)] max-w-6xl items-end px-4 pb-20 pt-32 sm:items-center sm:px-6 sm:pb-24 lg:px-8">
-          <div className="max-w-2xl">
+        <div className="relative z-[2] mx-auto flex min-h-[min(96vh,880px)] max-w-6xl items-center justify-center px-4 py-28 text-center sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-2xl">
             <Reveal
               as="p"
               className="mb-5 display text-[1.65rem] tracking-tight text-white sm:text-3xl lg:text-[2.35rem]"
@@ -58,12 +58,12 @@ export default function HomePage() {
 
             <HeroTypewriter />
 
-            <Reveal as="p" delay={2} className="mt-6 max-w-lg text-base leading-relaxed text-sky-50/90 sm:text-[1.08rem]">
+            <Reveal as="p" delay={2} className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-sky-50/90 sm:text-[1.08rem]">
               Natural, electricity-free water filters for Kerala — clearer water from the wells,
               rivers and lines you already trust.
             </Reveal>
 
-            <Reveal delay={3} className="mt-10 flex flex-wrap gap-3">
+            <Reveal delay={3} className="mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 href="/contact"
                 className="inline-flex rounded-lg bg-white px-6 py-3.5 text-sm font-semibold text-brand-deep shadow-[0_12px_40px_rgba(3,21,37,0.25)] transition hover:-translate-y-0.5 hover:bg-sky-50"
