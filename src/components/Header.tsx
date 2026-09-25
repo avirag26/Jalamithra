@@ -40,7 +40,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/25 bg-transparent backdrop-blur-md">
+    <header className="site-header sticky top-0 z-50 border-b border-line/80 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3.5 sm:px-6 lg:px-8">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Image

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import { lifestyle, scenes } from "@/lib/products";
 
 export const metadata: Metadata = { title: "About Us" };
 
@@ -36,13 +37,31 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <Image
-            src="/images/products.png"
-            alt="Jalamithra filtration equipment"
-            width={800}
-            height={620}
-            className="w-full bg-white object-contain p-4"
-          />
+          <div className="relative aspect-[4/5] overflow-hidden bg-soft lg:aspect-[5/6]">
+            <Image
+              src={lifestyle.glass}
+              alt="Clear drinking water"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+              quality={90}
+            />
+          </div>
+        </div>
+
+        <div className="mt-20 grid gap-3 sm:grid-cols-3 sm:gap-4">
+          {scenes.map((item) => (
+            <div key={item.id} className="relative aspect-[5/4] overflow-hidden bg-soft">
+              <Image
+                src={item.src}
+                alt={item.title}
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover"
+                quality={85}
+              />
+            </div>
+          ))}
         </div>
       </section>
     </>

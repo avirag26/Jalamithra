@@ -68,7 +68,7 @@ export default function HeroTypewriter() {
 
   return (
     <h1
-      className="display min-h-[3.4em] text-[2.55rem] leading-[1.12] text-white sm:min-h-[2.6em] sm:text-5xl lg:text-[3.6rem]"
+      className="display min-h-[3.2em] text-[2.35rem] leading-[1.12] text-white sm:min-h-[2.4em] sm:text-[2.85rem] lg:text-[3.35rem]"
       aria-live="polite"
     >
       <span className="sr-only">{phrases[phraseIndex]}</span>
