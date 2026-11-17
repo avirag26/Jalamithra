@@ -6,20 +6,28 @@ type Props = {
   eyebrow?: string;
   title: string;
   description: string;
+  image?: string;
+  cta?: { href: string; label: string };
 };
 
-export default function PageHero({ eyebrow = "APA Jalamithra", title, description }: Props) {
+export default function PageHero({
+  eyebrow = "APA Jalamithra",
+  title,
+  description,
+  image = lifestyle.river,
+  cta = { href: "/contact", label: "Request a Water Solution" },
+}: Props) {
   return (
     <section className="page-hero">
       <div className="absolute inset-0" aria-hidden>
         <Image
-          src={lifestyle.river}
+          src={image}
           alt=""
           fill
           priority
           sizes="100vw"
           className="object-cover object-center opacity-40"
-          quality={80}
+          quality={75}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#02101c] via-[#02101c]/88 to-[#0a4d87]/55" />
       </div>
@@ -31,8 +39,8 @@ export default function PageHero({ eyebrow = "APA Jalamithra", title, descriptio
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-sky-50/90 sm:text-lg">
           {description}
         </p>
-        <Link href="/contact" className="btn-ghost mt-8 inline-flex">
-          Talk to us
+        <Link href={cta.href} className="btn-ghost mt-8 inline-flex">
+          {cta.label}
         </Link>
       </div>
     </section>

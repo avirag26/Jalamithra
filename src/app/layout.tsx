@@ -18,11 +18,12 @@ const display = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: {
-    default: "APA Jalamithra | Natural Water Filtration",
-    template: "%s | APA Jalamithra",
+    default: "Water Purification and Rainwater Filtration in Kerala | Jalamithra",
+    template: "%s | Jalamithra",
   },
   description:
-    "APA Jalamithra manufactures natural, electricity-free water filters for homes, hotels, schools, and communities in Kerala.",
+    "Jalamithra offers water purification, rainwater filtration and natural filtration solutions from Malappuram, Kerala. ISO 9001:2015 certified.",
+  applicationName: "Jalamithra",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },

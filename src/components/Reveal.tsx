@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode;
   className?: string;
   delay?: 1 | 2 | 3 | 4;
-  as?: "div" | "p" | "h1" | "h2" | "h3" | "span";
+  as?: "div" | "p" | "h1" | "h2" | "h3" | "span" | "li";
   line?: boolean;
 };
 

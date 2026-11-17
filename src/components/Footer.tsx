@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { company, solutionLinks } from "@/lib/site";
 
-const links = [
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Service" },
-  { href: "/certificates", label: "Certificates" },
-  { href: "/vision-mission", label: "Vision & Mission" },
-  { href: "/reviews", label: "Reviews" },
+const companyLinks = [
+  { href: "/about-us", label: "About Us" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/quality-certification", label: "Quality and Certification" },
+  { href: "/media", label: "Media and News" },
+  { href: "/managing-director", label: "Managing Director" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
   return (
     <footer className="site-footer mt-auto border-t border-line bg-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1.1fr] lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:px-8">
         <div>
           <Image
             src="/images/logo.png"
@@ -23,15 +24,33 @@ export default function Footer() {
             className="mb-4 h-11 w-auto object-contain"
           />
           <p className="max-w-sm text-sm leading-relaxed text-foreground/70">
-            Natural, electricity-free water filtration for homes and institutions across Kerala.
+            Water purification, rainwater filtration and natural filtration for homes, businesses
+            and institutions across Kerala.
+          </p>
+          <p className="mt-4 inline-flex rounded-full border border-line bg-soft px-3 py-1 text-xs font-semibold text-brand-deep">
+            ISO 9001:2015 Certified
           </p>
         </div>
         <div>
           <p className="mb-4 text-xs font-semibold tracking-[0.14em] text-brand-deep uppercase">
-            Explore
+            Solutions
           </p>
           <ul className="space-y-2.5 text-sm text-foreground/70">
-            {links.map((link) => (
+            {solutionLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="transition hover:text-brand-deep">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="mb-4 text-xs font-semibold tracking-[0.14em] text-brand-deep uppercase">
+            Company
+          </p>
+          <ul className="space-y-2.5 text-sm text-foreground/70">
+            {companyLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="transition hover:text-brand-deep">
                   {link.label}
@@ -45,23 +64,23 @@ export default function Footer() {
             Visit
           </p>
           <ul className="space-y-2.5 text-sm leading-relaxed text-foreground/70">
-            <li>Enadhi, Alipetta House</li>
-            <li>Kalikavu, Malappuram — 676525</li>
+            <li>{company.addressLines[0]}</li>
+            <li>{company.addressLines[1]}</li>
             <li>
-              <a href="mailto:jalamithrapallipuram@gmail.com" className="hover:text-brand-deep">
-                jalamithrapallipuram@gmail.com
+              <a href={`mailto:${company.email}`} className="break-all hover:text-brand-deep">
+                {company.email}
               </a>
             </li>
             <li>
-              <a href="tel:+919037037373" className="font-semibold text-brand hover:text-brand-deep">
-                +91 90370 37373
+              <a href={company.phoneHref} className="font-semibold text-brand hover:text-brand-deep">
+                {company.phoneDisplay}
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-line px-4 py-4 text-center text-xs text-muted">
-        © {new Date().getFullYear()} APA Jalamithra Water Solution
+        © {new Date().getFullYear()} {company.legalName}
       </div>
     </footer>
   );

@@ -1,98 +1,80 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import EnquiryForm from "@/components/EnquiryForm";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { lifestyle } from "@/lib/products";
+import { company } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Contact Us" };
+export const metadata: Metadata = {
+  title: { absolute: "Contact Jalamithra | Water Solutions in Malappuram, Kerala" },
+  description:
+    "Contact APA Jalamithra in Kalikavu, Malappuram. Call +91 7592 994 949 or send a water enquiry online.",
+  keywords: [
+    "water filtration company Malappuram",
+    "water purification Malappuram",
+    "Jalamithra contact",
+  ],
+};
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        title="Contact us"
-        description="Reach us for a site visit, product guidance or institutional quotation."
+        eyebrow="Contact"
+        title="Contact Jalamithra"
+        description="Whether you have a question about your water, a rainwater project in mind or a site that needs a considered solution, we are glad to hear from you. Share a few details and we will take it from there."
+        cta={{ href: company.phoneHref, label: `Call ${company.phoneDisplay}` }}
       />
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div>
-            <Reveal className="relative mb-10 aspect-[16/11] overflow-hidden bg-soft">
-              <Image
-                src={lifestyle.river}
-                alt=""
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-                quality={85}
-              />
+          <div className="space-y-8">
+            <Reveal>
+              <p className="eyebrow mb-3">Talk to Jalamithra</p>
+              <p className="text-base leading-relaxed text-foreground/75">
+                Call us on{" "}
+                <a href={company.phoneHref} className="font-semibold text-brand hover:text-brand-deep">
+                  {company.phoneDisplay}
+                </a>{" "}
+                or visit us at {company.addressShort}. We are happy to discuss your water situation
+                over the phone or in person.
+              </p>
             </Reveal>
-            <div className="space-y-8">
-              <Reveal delay={1} className="border-t border-line pt-4">
-                <p className="eyebrow mb-2">Office</p>
-                <p className="text-foreground/75">
-                  Enadhi, Alipetta House
-                  <br />
-                  Kalikavu, Malappuram — 676525
-                </p>
-              </Reveal>
-              <Reveal delay={2} className="border-t border-line pt-4">
-                <p className="eyebrow mb-2">Reach</p>
-                <p className="text-foreground/75">
-                  <a className="font-semibold text-brand hover:text-brand-deep" href="tel:+919037037373">
-                    +91 90370 37373
-                  </a>
-                  <br />
-                  <a
-                    className="font-semibold text-brand hover:text-brand-deep"
-                    href="mailto:jalamithrapallipuram@gmail.com"
-                  >
-                    jalamithrapallipuram@gmail.com
-                  </a>
-                </p>
-              </Reveal>
-              <Reveal delay={3} className="border-t border-line pt-4">
-                <p className="eyebrow mb-2">Hours</p>
-                <p className="text-foreground/75">
-                  Mon–Sat · 8:00 AM – 6:00 PM
-                  <br />
-                  Sunday · Holiday
-                </p>
-              </Reveal>
-            </div>
+            <Reveal delay={1} className="border-t border-line pt-5">
+              <p className="eyebrow mb-2">Office</p>
+              <p className="font-semibold text-brand-deep">{company.legalName}</p>
+              <p className="mt-1 text-foreground/75">
+                {company.addressLines[0]}
+                <br />
+                {company.addressLines[1]}
+              </p>
+            </Reveal>
+            <Reveal delay={2} className="border-t border-line pt-5">
+              <p className="eyebrow mb-2">Reach</p>
+              <p className="text-foreground/75">
+                Phone:{" "}
+                <a className="font-semibold text-brand hover:text-brand-deep" href={company.phoneHref}>
+                  {company.phoneDisplay}
+                </a>
+                <br />
+                Email:{" "}
+                <a
+                  className="font-semibold break-all text-brand hover:text-brand-deep"
+                  href={`mailto:${company.email}`}
+                >
+                  {company.email}
+                </a>
+              </p>
+            </Reveal>
+            <Reveal delay={3} className="rounded-2xl bg-soft p-6">
+              <p className="display text-xl text-brand-deep">Request a Water Solution</p>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                Tell us where your water comes from and what you need it for. We will respond with
+                an honest view of what suits your situation.
+              </p>
+            </Reveal>
           </div>
 
-          <Reveal delay={2} className="border border-line bg-white p-6 sm:p-9">
-            <form action="#" method="post">
-              <h2 className="section-title text-2xl sm:text-3xl">Send an enquiry</h2>
-              <p className="mt-2 text-sm text-muted">Share your water source and need.</p>
-              <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                <label className="block text-sm font-medium text-brand-deep">
-                  Name
-                  <input required name="name" className="input-field" placeholder="Your name" />
-                </label>
-                <label className="block text-sm font-medium text-brand-deep">
-                  Phone
-                  <input required name="phone" type="tel" className="input-field" placeholder="+91 ..." />
-                </label>
-                <label className="block text-sm font-medium text-brand-deep sm:col-span-2">
-                  Email
-                  <input name="email" type="email" className="input-field" placeholder="you@example.com" />
-                </label>
-                <label className="block text-sm font-medium text-brand-deep sm:col-span-2">
-                  Message
-                  <textarea
-                    required
-                    name="message"
-                    rows={5}
-                    className="input-field resize-y"
-                    placeholder="Tell us about your water source..."
-                  />
-                </label>
-              </div>
-              <button type="submit" className="btn-primary mt-7 w-full sm:w-auto">
-                Submit enquiry
-              </button>
-            </form>
+          <Reveal delay={2} className="rounded-2xl border border-line bg-white p-6 sm:p-9">
+            <EnquiryForm />
           </Reveal>
         </div>
       </section>
