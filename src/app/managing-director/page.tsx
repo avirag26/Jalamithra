@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import ProseSections from "@/components/ProseSections";
 import Reveal from "@/components/Reveal";
+import { gallery } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: { absolute: "Ashraf Dosth, Managing Director | Jalamithra" },
@@ -28,11 +30,27 @@ export default function ManagingDirectorPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
-          <Reveal className="mx-auto flex h-44 w-44 items-center justify-center rounded-full bg-gradient-to-br from-brand-deep to-brand text-white sm:h-52 sm:w-52">
-            <span className="display text-6xl" aria-hidden>
-              AD
-            </span>
+        <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1fr] lg:gap-14">
+          <Reveal className="mx-auto w-full max-w-sm">
+            <figure className="overflow-hidden rounded-2xl border border-line bg-white">
+              <Image
+                src={gallery.mdPortrait.src}
+                alt="Portrait of Ashraf Dosth, Managing Director of Jalamithra Pvt. Ltd."
+                width={gallery.mdPortrait.width}
+                height={gallery.mdPortrait.height}
+                priority
+                sizes="(max-width: 1024px) 384px, 40vw"
+                className="h-auto w-full"
+                quality={90}
+              />
+              <figcaption className="bg-brand-deep px-5 py-4 text-center text-white">
+                <p className="display text-xl">Ashraf Dosth</p>
+                <p className="mt-1 text-xs leading-relaxed text-sky-100/85">
+                  Entrepreneur, International Social and Charity Worker &amp; MD, Jalamithra Pvt.
+                  Ltd.
+                </p>
+              </figcaption>
+            </figure>
           </Reveal>
           <div>
             <Reveal as="p" className="eyebrow mb-3">

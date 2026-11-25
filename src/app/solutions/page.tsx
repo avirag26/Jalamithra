@@ -4,6 +4,7 @@ import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import { gallery } from "@/lib/gallery";
 import { lifestyle } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -111,6 +112,36 @@ export default function SolutionsPage() {
             </Reveal>
           </article>
         ))}
+      </section>
+
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <Reveal as="p" className="eyebrow mb-3 justify-center">
+              Filter Vessels
+            </Reveal>
+            <Reveal as="h2" delay={1} className="section-title text-3xl sm:text-4xl">
+              The Jalamithra filter range
+            </Reveal>
+            <Reveal as="p" delay={2} className="mt-4 text-base leading-relaxed text-foreground/75">
+              Natural filter vessels in sizes from 10x35 to 14x65. We recommend the size after
+              looking at your source, your storage and how much water you use each day.
+            </Reveal>
+          </div>
+          <Reveal delay={2} className="overflow-hidden rounded-2xl border border-line bg-soft">
+            <a href={gallery.filterRange.src} target="_blank" rel="noopener noreferrer" className="block">
+              <Image
+                src={gallery.filterRange.src}
+                alt="Jalamithra natural water filter vessels in sizes 10x35, 8x44, 10x54, 12x48, 13x54 and 14x65"
+                width={gallery.filterRange.width}
+                height={gallery.filterRange.height}
+                sizes="(max-width: 1200px) 100vw, 1152px"
+                className="h-auto w-full"
+                quality={90}
+              />
+            </a>
+          </Reveal>
+        </div>
       </section>
 
       <CtaBand

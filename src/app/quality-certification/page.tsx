@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import ProseSections from "@/components/ProseSections";
 import Reveal from "@/components/Reveal";
+import { gallery } from "@/lib/gallery";
 import { certificate } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -69,8 +71,27 @@ export default function QualityCertificationPage() {
       </section>
 
       <section id="certificate" className="scroll-mt-24 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="cert-banner overflow-hidden rounded-3xl border border-line bg-white">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1fr] lg:px-8">
+          <Reveal className="mx-auto w-full max-w-md lg:sticky lg:top-28">
+            <a
+              href={gallery.isoCertificate.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block overflow-hidden rounded-2xl border border-line bg-white p-3 shadow-sm"
+            >
+              <Image
+                src={gallery.isoCertificate.src}
+                alt="ISO 9001:2015 Certificate of Registration issued by ROHS Certification to APA Jalamithra Water Solution Private Limited, certificate number 23DQKS11"
+                width={gallery.isoCertificate.width}
+                height={gallery.isoCertificate.height}
+                sizes="(max-width: 1024px) 448px, 40vw"
+                className="h-auto w-full rounded-lg"
+                quality={90}
+              />
+            </a>
+            <p className="mt-3 text-center text-xs text-muted">Click the certificate to view it full size.</p>
+          </Reveal>
+          <Reveal delay={1} className="cert-banner overflow-hidden rounded-3xl border border-line bg-white">
             <div className="border-b border-line bg-soft px-6 py-8 text-center sm:px-10">
               <p className="text-xs font-semibold tracking-[0.18em] text-brand uppercase">
                 Certificate Details

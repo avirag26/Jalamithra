@@ -3,6 +3,8 @@ import Image from "next/image";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import VideoCard from "@/components/VideoCard";
+import { gallery, videos } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: { absolute: "Jalamithra in the Media | Newspaper Coverage" },
@@ -24,9 +26,27 @@ type Clipping = {
   title?: string;
   publication?: string;
   date?: string;
+  /** Landscape scans span two columns on larger screens. */
+  wide?: boolean;
 };
 
-const clippings: Clipping[] = [];
+const clippings: Clipping[] = [
+  {
+    ...gallery.kaumudiAward,
+    title: "Kerala Kaumudi award for excellence in clean water conservation",
+    publication: "Kerala Kaumudi, Palakkad",
+    date: "13 Mar 2024",
+    caption:
+      "Managing Director Ashraf Dosth receives the Kerala Kaumudi award from Electricity Minister K. Krishnankutty at the newspaper's 113th anniversary celebration.",
+  },
+  {
+    ...gallery.pressBrochure,
+    wide: true,
+    title: "Press coverage at a glance",
+    caption:
+      "A collection of features on Ashraf Dosth and Jalamithra from Malayala Manorama, Kerala Kaumudi, Mathrubhumi, Madhyamam and television news, alongside our ISO 9001:2015 certificate.",
+  },
+];
 
 export default function MediaPage() {
   return (
@@ -58,7 +78,9 @@ export default function MediaPage() {
               <Reveal
                 key={clip.src}
                 delay={((index % 4) + 1) as 1 | 2 | 3 | 4}
-                className="overflow-hidden rounded-2xl border border-line bg-white"
+                className={`overflow-hidden rounded-2xl border border-line bg-white ${
+                  clip.wide ? "sm:col-span-2" : ""
+                }`}
               >
                 <figure>
                   <a href={clip.src} target="_blank" rel="noopener noreferrer" className="block bg-soft">
@@ -67,7 +89,11 @@ export default function MediaPage() {
                       alt={clip.caption}
                       width={clip.width}
                       height={clip.height}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes={
+                        clip.wide
+                          ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
+                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      }
                       className="h-auto w-full"
                       quality={90}
                     />
@@ -95,6 +121,29 @@ export default function MediaPage() {
             </p>
           </Reveal>
         )}
+      </section>
+
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 max-w-2xl">
+            <Reveal as="p" className="eyebrow mb-3">
+              Videos
+            </Reveal>
+            <Reveal as="h2" delay={1} className="section-title text-3xl sm:text-4xl">
+              Jalamithra on camera
+            </Reveal>
+            <Reveal as="p" delay={2} className="mt-4 text-base leading-relaxed text-foreground/75">
+              Short videos from our exhibition stall and from a customer&apos;s site.
+            </Reveal>
+          </div>
+          <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
+            {videos.map((video, index) => (
+              <Reveal key={video.src} delay={((index % 4) + 1) as 1 | 2 | 3 | 4}>
+                <VideoCard video={video} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       <CtaBand

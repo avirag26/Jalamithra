@@ -4,6 +4,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
+import VideoCard from "@/components/VideoCard";
+import { gallery, videos } from "@/lib/gallery";
 import { lifestyle } from "@/lib/products";
 import { certificate } from "@/lib/site";
 
@@ -289,8 +291,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Jalamithra */}
+      {/* Product range */}
       <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <Reveal as="p" className="eyebrow mb-3 justify-center">
+              Our Filter Range
+            </Reveal>
+            <Reveal as="h2" delay={1} className="section-title text-3xl sm:text-4xl">
+              Natural water filters in sizes for every home
+            </Reveal>
+            <Reveal as="p" delay={2} className="mt-4 text-base leading-relaxed text-foreground/75">
+              Jalamithra filter vessels come in a range of sizes, from compact 10x35 units to
+              14x65 vessels, so the system can be matched to the source and the daily demand.
+            </Reveal>
+          </div>
+          <Reveal delay={2} className="overflow-hidden rounded-2xl border border-line bg-soft">
+            <a
+              href={gallery.filterRange.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Image
+                src={gallery.filterRange.src}
+                alt="Jalamithra natural water filter vessels in blue and green, in sizes from 10x35 to 14x65, with Managing Director Ashraf Dosth"
+                width={gallery.filterRange.width}
+                height={gallery.filterRange.height}
+                sizes="(max-width: 1200px) 100vw, 1152px"
+                className="h-auto w-full"
+                quality={90}
+              />
+            </a>
+          </Reveal>
+          <Reveal delay={3} className="mt-8 flex justify-center">
+            <Link href="/solutions" className="btn-secondary">
+              Explore Our Solutions
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Why Jalamithra */}
+      <section className="bg-soft py-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <Reveal as="p" className="eyebrow mb-3 justify-center">
@@ -305,7 +348,7 @@ export default function HomePage() {
               <Reveal
                 key={item.title}
                 delay={delayFor(index)}
-                className="rounded-2xl border border-line bg-background p-7"
+                className="rounded-2xl border border-line bg-white p-7"
               >
                 <span className="text-xs font-semibold tracking-[0.2em] text-brand uppercase">
                   {String(index + 1).padStart(2, "0")}
@@ -359,6 +402,41 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Videos */}
+      <section className="bg-soft py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+            <div>
+              <Reveal as="p" className="eyebrow mb-3">
+                See Our Work
+              </Reveal>
+              <Reveal as="h2" delay={1} className="section-title text-3xl sm:text-4xl">
+                From the exhibition floor to the well side.
+              </Reveal>
+              <Reveal as="p" delay={2} className="mt-5 text-base leading-relaxed text-foreground/75">
+                Watch our team explain the Jalamithra filter range to visitors, and see a working
+                installation with the customer who relies on it every day.
+              </Reveal>
+              <Reveal delay={3} className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary">
+                  Request a Site Visit
+                </Link>
+                <Link href="/media" className="btn-secondary">
+                  More in the Media
+                </Link>
+              </Reveal>
+            </div>
+            <div className="mx-auto grid w-full max-w-md grid-cols-1 gap-6 sm:max-w-none sm:grid-cols-2">
+              {videos.map((video, index) => (
+                <Reveal key={video.src} delay={delayFor(index + 1)}>
+                  <VideoCard video={video} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ISO quality */}
       <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-16 lg:px-8">
@@ -383,7 +461,25 @@ export default function HomePage() {
               </Link>
             </Reveal>
           </div>
-          <Reveal delay={2} className="rounded-2xl border border-line bg-soft p-7 sm:p-9">
+          <Reveal
+            delay={2}
+            className="grid items-center gap-6 rounded-2xl border border-line bg-soft p-6 sm:grid-cols-[0.8fr_1fr] sm:p-8"
+          >
+            <Link
+              href="/quality-certification#certificate"
+              className="mx-auto block w-full max-w-[260px] overflow-hidden rounded-xl border border-line bg-white shadow-sm"
+            >
+              <Image
+                src={gallery.isoCertificate.src}
+                alt="ISO 9001:2015 Certificate of Registration issued to APA Jalamithra Water Solution Private Limited"
+                width={gallery.isoCertificate.width}
+                height={gallery.isoCertificate.height}
+                sizes="260px"
+                className="h-auto w-full"
+                quality={90}
+              />
+            </Link>
+            <div>
             <p className="text-xs font-semibold tracking-[0.16em] text-brand uppercase">
               {certificate.standard}
             </p>
@@ -402,6 +498,7 @@ export default function HomePage() {
                 <dd className="mt-1 font-semibold text-brand-deep">{certificate.scope}</dd>
               </div>
             </dl>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -410,6 +507,19 @@ export default function HomePage() {
       <section className="bg-soft py-16 lg:py-24">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <Reveal className="flex flex-col rounded-2xl border border-line bg-white p-7 sm:p-9">
+            <Link
+              href="/media"
+              className="relative mb-6 block aspect-[16/10] overflow-hidden rounded-xl border border-line bg-soft"
+            >
+              <Image
+                src={gallery.kaumudiAward.src}
+                alt="Kerala Kaumudi clipping: Jalamithra receives the Kerala Kaumudi award for excellence in clean water conservation"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-top"
+                quality={75}
+              />
+            </Link>
             <p className="eyebrow mb-3">In the Media</p>
             <h2 className="section-title text-2xl sm:text-3xl">
               Seen in the press, and shaped by real work.
@@ -427,6 +537,19 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={2} className="flex flex-col rounded-2xl border border-line bg-white p-7 sm:p-9">
+            <Link
+              href="/managing-director"
+              className="relative mb-6 block aspect-[16/10] overflow-hidden rounded-xl border border-line bg-soft"
+            >
+              <Image
+                src={gallery.mdPortrait.src}
+                alt="Ashraf Dosth, Managing Director of Jalamithra Pvt. Ltd."
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-[50%_20%]"
+                quality={75}
+              />
+            </Link>
             <p className="eyebrow mb-3">Managing Director</p>
             <h2 className="section-title text-2xl sm:text-3xl">
               Leadership rooted in enterprise and service.
